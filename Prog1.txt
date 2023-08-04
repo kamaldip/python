@@ -1,0 +1,35 @@
+The function should:
+
+accept three arguments: a prompt, a low acceptable limit, and a high acceptable limit;
+if the user enters a string that is not an integer value, the function should emit the message Error: wrong input, and ask the user to input the value again;
+if the user enters a number which falls outside the specified range, the function should emit the message Error: the value is not within permitted range (min..max) and ask the user to input the value again;
+if the input value is valid, return it as a result.
+
+
+
+def read_int(prompt, min, max):
+    
+    try:
+        prom=int(input(prompt))
+        print(prom)
+        #min=int(min)
+        #max=int(max)
+        #if (type(prom)!=int):
+        
+        assert prom>min and prom<max
+        return prom
+    except ValueError:
+        print("Error: wrong input")
+        
+    except:
+        print("Error: the value is not within permitted range (min..max)")
+            
+        
+    #
+    # Write your code here.
+    #
+
+
+v = read_int("Enter a number from -10 to 10: ", -10, 10)
+
+print("The number is:", v)
