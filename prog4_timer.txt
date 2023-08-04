@@ -1,0 +1,91 @@
+Scenario
+We need a class able to count seconds. Easy? Not as much as you may think as we're going to have some specific expectations.
+
+Read them carefully as the class you're about write will be used to launch rockets carrying international missions to Mars. It's a great responsibility. We're counting on you!
+
+Your class will be called Timer. Its constructor accepts three arguments representing hours (a value from range [0..23] - we will be using the military time), minutes (from range [0..59]) and seconds (from range [0..59]).
+
+Zero is the default value for all of the above parameters. There is no need to perform any validation checks.
+
+The class itself should provide the following facilities:
+
+objects of the class should be "printable", i.e. they should be able to implicitly convert themselves into strings of the following form: "hh:mm:ss", with leading zeros added when any of the values is less than 10;
+the class should be equipped with parameterless methods called next_second() and previous_second(), incrementing the time stored inside objects by +1/-1 second respectively.
+Use the following hints:
+
+all object's properties should be private;
+consider writing a separate function (not method!) to format the time string.
+Complete the template we've provided in the editor. Run your code and check whether the output looks the same as ours.
+
+Expected output
+23:59:59
+00:00:00
+23:59:59
+
+class Timer:
+    def __init__(self,hours,minutes,seconds):
+        self.__hours=hours%24
+        self.__minutes=minutes%60
+        self.__seconds=seconds%60
+        #
+        # Write code here
+        #
+
+    def __str__(self):
+        if self.__hours in range(0,10):
+            self.__hours=str(self.__hours)
+            self.__hours="0"+self.__hours
+             
+        else:
+            self.__hours=str(self.__hours)
+                
+        if self.__minutes in range(0,10):
+            self.__minutes=str(self.__minutes)
+            self.__minutes="0"+self.__minutes
+        else:
+            self.__minutes=str(self.__minutes)
+            
+        if self.__seconds in range(0,10):
+            self.__seconds=str(self.__seconds)
+            self.__Seconds="0"+self.__seconds
+        else:
+            self.__seconds=str(self.__seconds)
+        
+        return(self.__hours+":"+self.__minutes+":"+self.__seconds)
+        
+        
+        
+            
+            
+            
+            
+        #
+        # Write code here
+        #
+
+    def next_second(self):
+        self.__seconds=int(self.__seconds)
+        self.__seconds+=1
+        self.__seconds=str(self.__seconds)
+        return self.__seconds
+        #
+        # Write code here
+        #
+
+    def prev_second(self):
+        self.__seconds=int(self.__seconds)
+        self.__seconds-=2
+        self.__seconds==str(self.__seconds)
+        return self.__seconds
+        #
+        # Write code here
+        #
+
+
+timer = Timer(3, 59, 59)
+print(timer)
+timer.next_second()
+print(timer)
+timer.prev_second()
+print(timer)
+
